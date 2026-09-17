@@ -4,27 +4,59 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand|Caveat:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand|Caveat:wght@400;700|Cinzel:wght@500;700&display=swap"
         rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Піццерія</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260101">
 </head>
 
 <body>
+    <div class="welcome-screen" id="welcome-screen" role="button" tabindex="0" aria-label="Увійти у світ піци">
+        <h1><span class="welcome-half welcome-half-left">ВИ ЗАЙШЛИ У ЗАХОВАНИЙ</span><span class="welcome-half welcome-half-right">СВІТ ПІЦЦИ~~~</span></h1>
+        <p class="welcome-hint">Натисніть, щоб продовжити</p>
+    </div>
     <header class="header">
         <img src="../Images for it/Лого.png" alt="Лого" width="70" height="70" class="logo">
         <h1 id="page-title" class="page-title">ВИ ЗАЙШЛИ У ЗАХОВАНИЙ СВІТ ПІЦЦИ~~~</h1>
     </header>
     <p class="intro"><strong>Обирайте незвичну піцу з нашого меню, і не заблукайте.....</strong></p>
-    <div class="menu-block">
-        <h2 class="section-title">Меню</h2>
-        <img src="../Images for it/Всі піци.jpg" alt="Піца" class="menu-image">
-    </div>
     <div class="selection-banner">
         <h3 class="section-title"><strong class="highlight">Виберіть піцу з тих що є у меню</strong></h3>
     </div>
+    <div class="menu-block" id="menu-block">
+        <div class="menu-content" id="menu-content">
+            <p class="menu-status">Оберіть розділ меню</p>
+            <div class="menu-tabs" id="menu-tabs">
+                <button class="menu-tab" type="button" data-menu-tab="pizza" data-short="П" aria-label="Піца">Піца</button>
+                <button class="menu-tab" type="button" data-menu-tab="coffee" data-short="К" aria-label="Кава">Кава</button>
+                <button class="menu-tab" type="button" data-menu-tab="desserts" data-short="Д" aria-label="Десерти">Десерти</button>
+                <button class="menu-tab" type="button" data-menu-tab="alcohol" data-short="А" aria-label="Алкоголь">Алкоголь</button>
+            </div>
+            <button class="about-button" id="about-button" type="button">Про нас</button>
+        </div>
+    </div>
+    <section class="tavern-category" id="pizza-section" hidden aria-labelledby="pizza-hero-title">
+        <div class="tavern-hero tavern-hero--pizza">
+            <h2 id="pizza-hero-title" class="tavern-hero-title">Виберіть піцу з тих що є у меню
+                <span class="tavern-hero-subtitle">Смачна піца з печі справжньої таверни</span>
+            </h2>
+        </div>
+        <div class="tavern-filterbar" id="pizza-filterbar">
+            <div class="tavern-search-wrap">
+                <input class="tavern-search" id="pizza-search" type="search" placeholder="Пошук піци..." aria-label="Пошук піци" autocomplete="off">
+                <ul class="tavern-suggest" id="pizza-suggest" role="listbox" aria-label="Підказки пошуку" hidden></ul>
+            </div>
+            <button class="tavern-filter-toggle" id="pizza-filter-toggle" type="button" aria-expanded="false" aria-controls="pizza-chips">Фільтри</button>
+            <div class="tavern-chips" id="pizza-chips" role="group" aria-label="Фільтри піци">
+                <button class="tavern-chip is-active" type="button" data-pizza-filter="all">Усі</button>
+                <button class="tavern-chip" type="button" data-pizza-filter="spicy">Гостре</button>
+                <button class="tavern-chip" type="button" data-pizza-filter="veg">Вегетаріанська</button>
+                <button class="tavern-chip" type="button" data-pizza-filter="sale">Акція</button>
+                <button class="tavern-chip" type="button" data-pizza-filter="hit">Хіт</button>
+            </div>
+        </div>
     <ol class="pizza-list">
         <li>
             <div class="pizza-item">
@@ -34,19 +66,11 @@
             </div>
         </li>
         <li>
-            <div class="pizza-item spicy-item">
-                <span class="spicy-label">Гостре!</span>
-                <h2 id="pizzaname2" class="pizza-name">Ворота Вогняної землі</h2>
-                <img src="../Images for it/Ворота Вогняної землі.jpg" alt="Ворота Вогняної землі" width="400" height="300">
-                <p><strong id="price2" class="price">Ціна: 220 грн</strong></p>
-            </div>
-        </li>
-        <li>
             <div class="pizza-item promo-item">
                 <span class="promo-label">Акція!</span>
                 <h2 id="pizzaname3" class="pizza-name">Врожай Печерного Короля</h2>
                 <img src="../Images for it/Врожай Печерного Короля.jpg" alt="Врожай Печерного Короля" width="400" height="300">
-                <p class="promo-price"><span class="old-price">400 грн</span><strong id="price3" class="price current-price">200 грн</strong><span class="discount-badge">50% OFF</span></p>
+                <p class="promo-price"><span class="old-price">200 грн</span><strong id="price3" class="price current-price">100 грн</strong></p>
             </div>
         </li>
         <li>
@@ -54,7 +78,7 @@
                 <span class="chef-label">Від шефа</span>
                 <h2 id="pizzaname4" class="pizza-name">Дар Морської Німфи</h2>
                 <img src="../Images for it/Дар Морської Німфи.jpg" alt="Дар Морської Німфи" width="400" height="300">
-                <p><strong id="price4" class="price">Ціна: 230 грн</strong></p>
+                <p><strong id="price4" class="price">Ціна: 500 грн</strong></p>
             </div>
         </li>
         <li>
@@ -84,7 +108,7 @@
                 <span class="promo-label">Акція!</span>
                 <h2 id="pizzaname8" class="pizza-name">Пекельний Салямі</h2>
                 <img src="../Images for it/Пекельний Салямі.jpg" alt="Пекельний Салямі" width="400" height="300">
-                <p class="promo-price"><span class="old-price">440 грн</span><strong id="price8" class="price current-price">220 грн</strong><span class="discount-badge">50% OFF</span></p>
+                <p class="promo-price"><span class="old-price">220 грн</span><strong id="price8" class="price current-price">110 грн</strong></p>
             </div>
         </li>
         <li>
@@ -99,7 +123,7 @@
                 <span class="promo-label">Акція!</span>
                 <h2 id="pizzaname10" class="pizza-name">Сад ельфійської друїдки</h2>
                 <img src="../Images for it/Сад ельфійської друїдки.jpg" alt="Сад ельфійської друїдки" width="400" height="300">
-                <p class="promo-price"><span class="old-price">400 грн</span><strong id="price10" class="price current-price">200 грн</strong><span class="discount-badge">50% OFF</span></p>
+                <p class="promo-price"><span class="old-price">200 грн</span><strong id="price10" class="price current-price">100 грн</strong></p>
             </div>
         </li>
         <li>
@@ -114,7 +138,7 @@
                 <span class="promo-label">Акція!</span>
                 <h2 id="pizzaname12" class="pizza-name">Скрижаль прошуто і лугової трави</h2>
                 <img src="../Images for it/Скрижаль прошуто і лугової трави.jpg" alt="Скрижаль прошуто і лугової трави" width="400" height="300">
-                <p class="promo-price"><span class="old-price">480 грн</span><strong id="price12" class="price current-price">240 грн</strong><span class="discount-badge">50% OFF</span></p>
+                <p class="promo-price"><span class="old-price">240 грн</span><strong id="price12" class="price current-price">120 грн</strong></p>
             </div>
         </li>
         <li>
@@ -152,7 +176,7 @@
                 <span class="promo-label">Акція!</span>
                 <h2 id="pizzaname17" class="pizza-name">Трюфельний стрілець</h2>
                 <img src="../Images for it/Трюфельний стрілець.jpg" alt="Трюфельний стрілець" width="400" height="300">
-                <p class="promo-price"><span class="old-price">500 грн</span><strong id="price17" class="price current-price">250 грн</strong><span class="discount-badge">50% OFF</span></p>
+                <p class="promo-price"><span class="old-price">250 грн</span><strong id="price17" class="price current-price">125 грн</strong></p>
             </div>
         </li>
         <li>
@@ -163,51 +187,159 @@
                 <p><strong id="price18" class="price">Ціна: 200 грн</strong></p>
             </div>
         </li>
+        <li>
+            <div class="pizza-item spicy-item">
+                <span class="spicy-label">Гостре!</span>
+                <h2 id="pizzaname19" class="pizza-name spicy-name">Ворота Вогняної Землі</h2>
+                <img src="../Images for it/Ворота Вогняної Землі.jpg" alt="Ворота Вогняної Землі" width="400" height="300">
+                <p><strong id="price19" class="price">Ціна: 180 грн</strong></p>
+            </div>
+        </li>
     </ol>
+    </section>
+    <section class="coffee-section tavern-category" id="coffee-section" hidden aria-labelledby="coffee-title">
+        <div class="tavern-hero">
+            <h2 id="coffee-title" class="tavern-hero-title">Кава та напої
+                <span class="tavern-hero-subtitle">Виберіть напій з тих що є у меню</span>
+            </h2>
+        </div>
+        <div class="tavern-filterbar" id="coffee-filterbar">
+            <div class="tavern-search-wrap">
+                <input class="tavern-search" id="coffee-search" type="search" placeholder="Пошук напою..." aria-label="Пошук кави" autocomplete="off">
+                <ul class="tavern-suggest" id="coffee-suggest" role="listbox" aria-label="Підказки пошуку" hidden></ul>
+            </div>
+            <button class="tavern-filter-toggle" id="coffee-filter-toggle" type="button" aria-expanded="false" aria-controls="coffee-chips">Фільтри</button>
+            <div class="tavern-chips" id="coffee-chips" role="group" aria-label="Фільтри кави">
+                <button class="tavern-chip is-active" type="button" data-coffee-filter="all">Усі</button>
+                <button class="tavern-chip" type="button" data-coffee-filter="hot">Гаряча</button>
+                <button class="tavern-chip" type="button" data-coffee-filter="cold">Холодна</button>
+                <button class="tavern-chip" type="button" data-coffee-filter="coffee">Кавова</button>
+                <button class="tavern-chip" type="button" data-coffee-filter="sale">Акція</button>
+            </div>
+        </div>
+        <div class="coffee-list" id="coffee-list"></div>
+    </section>
+    <section class="dessert-section tavern-category" id="dessert-section" hidden aria-labelledby="dessert-hero-title">
+        <div class="tavern-hero tavern-hero--dessert">
+            <h2 id="dessert-hero-title" class="tavern-hero-title">Десерти
+                <span class="tavern-hero-subtitle">Солодощі для справжніх героїв</span>
+            </h2>
+        </div>
+        <div class="tavern-filterbar" id="dessert-filterbar">
+            <div class="tavern-search-wrap">
+                <input class="tavern-search" id="dessert-search" type="search" placeholder="Пошук десерту..." aria-label="Пошук десертів" autocomplete="off">
+                <ul class="tavern-suggest" id="dessert-suggest" role="listbox" aria-label="Підказки пошуку" hidden></ul>
+            </div>
+        </div>
+        <div class="tavern-list" id="dessert-list"></div>
+        <p class="tavern-coming-soon">Цей розділ у розробці — незабаром тут з'являться десерти.</p>
+    </section>
+    <section class="alcohol-section tavern-category" id="alcohol-section" hidden aria-labelledby="alcohol-hero-title">
+        <div class="tavern-hero tavern-hero--alcohol">
+            <h2 id="alcohol-hero-title" class="tavern-hero-title">Алкоголь
+                <span class="tavern-hero-subtitle">Напої для гучних вечорів у таверні</span>
+            </h2>
+        </div>
+        <div class="tavern-filterbar" id="alcohol-filterbar">
+            <div class="tavern-search-wrap">
+                <input class="tavern-search" id="alcohol-search" type="search" placeholder="Пошук напою..." aria-label="Пошук алкоголю" autocomplete="off">
+                <ul class="tavern-suggest" id="alcohol-suggest" role="listbox" aria-label="Підказки пошуку" hidden></ul>
+            </div>
+        </div>
+        <div class="tavern-list" id="alcohol-list"></div>
+        <p class="tavern-coming-soon">Цей розділ у розробці — незабаром тут з'явиться алкоголь.</p>
+    </section>
     <div class="divider"></div>
-    <h3 class="section-title">Умови замовлення</h3>
-    <table class="order-table">
-        <caption>Інформація для замовлення</caption>
-        <thead>
-            <tr>
-                <th scope="col">Що?</th>
-                <th scope="col">Скільки?</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">Розмір піци</th>
-                <td>40 см</td>
-            </tr>
-            <tr>
-                <th scope="row">Доставка</th>
-                <td>Безкоштовна від 700 грн</td>
-            </tr>
-        </tbody>
-    </table>
-    <h4 class="section-title offers-title"><em>Що ми пропонуємо</em></h4>
-    <ul class="offers-list">
-        <li>Високоякісні інгредієнти</li>
-        <li>Незвичні піци</li>
-        <li>Веселу кухню</li>
-        <li>Нестандартний підхід</li>
-        <li>Дружній персонал</li>
-    </ul>
-    <ol class="contact-section">
-        <li>Де нас знайти</li>
-        <ul>
-            <li>Адреса: вул. Піццерійна, 123, Місто, Країна</li>
-            <li>Телефон: +38 (012) 345-6789</li>
-            <li>Email:infopizza@gmail.com</li>
-        </ul>
-        <li>Соціальні мережі: Facebook, Instagram, Twitter</li>
-        <ul>
-            <li>Facebook: <a href="https://www.facebook.com/pizzeria">facebook.com/pizzeria</a></li>
-            <li>Instagram: <a href="https://www.instagram.com/pizzeria">instagram.com/pizzeria</a></li>
-            <li>Twitter: <a href="https://www.twitter.com/pizzeria">twitter.com/pizzeria</a></li>
-        </ul>
-    </ol>
-    <h5><em>Зв'яжіться з нами</em></h5>
+        <section class="delivery-screen about-screen" id="about-screen" hidden aria-labelledby="about-title">
+            <div class="delivery-card about-card">
+                <button class="delivery-close" id="about-close" type="button" aria-label="Закрити інформацію">&times;</button>
+                <h2 id="about-title">Про нас</h2>
+                <h4 class="section-title offers-title"><em>Що ми пропонуємо</em></h4>
+                <ul class="offers-list">
+                    <li>Високоякісні інгредієнти</li>
+                    <li>Незвичні піци</li>
+                    <li>Веселу кухню</li>
+                    <li>Нестандартний підхід</li>
+                    <li>Дружній персонал</li>
+                </ul>
+            </div>
+        </section>
+        <section class="bottom-info" aria-label="Контактна інформація">
+            <div class="bottom-info-column">
+                <strong>Де нас знайти</strong>
+                <span>вул. Піццерійна, 123</span>
+                <span>Україна, Франківськ</span>
+                <span>вулиця Січових Стрільців, 12г</span>
+                <span>Щодня: 10:00-22:00</span>
+            </div>
+            <div class="bottom-info-column">
+                <strong>Телефон</strong>
+                <span>+38 (012) 345-6789</span>
+                <span>Для замовлень і питань</span>
+            </div>
+            <div class="bottom-info-column">
+                <strong>Email</strong>
+                <span>infopizza@gmail.com</span>
+            </div>
+            <div class="bottom-info-column">
+                <strong>Наші соц мережі</strong>
+                <a href="https://www.facebook.com/pizzeria">facebook.com/pizzeria</a>
+                <a href="https://www.instagram.com/pizzeria">instagram.com/pizzeria</a>
+                <a href="https://www.twitter.com/pizzeria">twitter.com/pizzeria</a>
+            </div>
+            <div class="bottom-info-column bottom-info-spacer" aria-hidden="true"></div>
+            <strong class="bottom-info-message">Пишіть нам у будь-який час</strong>
+            <strong class="bottom-info-rating">Поставте відгук будь ласка!</strong>
+        </section>
+
+    <aside class="cart-float" id="cart-float" aria-live="polite" aria-label="Чек покупки">
+        <button class="cart-toggle" id="cart-toggle" type="button" aria-label="Відкрити чек">
+            <span class="cart-icon">🧾</span>
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <div class="cart-panel" id="cart-panel" hidden>
+            <div class="cart-header">
+                <h3>Чек</h3>
+                <button class="cart-close" id="cart-close" type="button" aria-label="Закрити чек">×</button>
+                </div>
+                <div class="cart-filters" role="group" aria-label="Фільтр чека">
+                    <button class="cart-filter is-active" type="button" data-cart-filter="all">Усі</button>
+                    <button class="cart-filter" type="button" data-cart-filter="Піца">Піца</button>
+                    <button class="cart-filter" type="button" data-cart-filter="Кава">Кава</button>
+                </div>
+                <ul class="cart-items" id="cart-items"></ul>
+                <div class="cart-summary">
+                    <span>Разом</span>
+                    <strong id="cart-total">0 грн</strong>
+                </div>
+                <button class="delivery-button" id="delivery-button" type="button">Доставка</button>
+                <button class="checkout-button" id="checkout-button" type="button">Оформити замовлення</button>
+            </div>
+        </aside>
+        <div class="checkout-message" id="checkout-message" role="status" aria-live="polite" hidden>В розробці</div>
+        <section class="delivery-screen" id="delivery-screen" hidden aria-labelledby="delivery-title">
+            <div class="delivery-card">
+                <button class="delivery-close" id="delivery-close" type="button" aria-label="Закрити доставку">&times;</button>
+                <h2 id="delivery-title">Доставка</h2>
+                <form id="delivery-form">
+                    <label for="delivery-address">Куди доставити?</label>
+                    <input id="delivery-address" name="address" type="text" placeholder="Ваша адреса" required>
+                    <label for="delivery-name">Як вас звуть?</label>
+                    <input id="delivery-name" name="name" type="text" placeholder="Ваше ім'я" required>
+                    <label class="quick-option" for="delivery-standard">
+                        <input id="delivery-standard" name="delivery-speed" type="radio" value="standard" checked>
+                        <span>Стандарт</span>
+                    </label>
+                    <label class="quick-option" for="delivery-quick">
+                        <input id="delivery-quick" name="delivery-speed" type="radio" value="quick">
+                        <span>Швидко (300 грн)</span>
+                    </label>
+                    <button class="delivery-submit" type="submit">Підтвердити доставку</button>
+                </form>
+            </div>
+        </section>
+
+    <script src="script.js?v=20260101"></script>
 
 </body>
 
